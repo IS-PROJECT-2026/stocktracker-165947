@@ -3,15 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockTracker - Inventory Management</title>
+
+    <title>StockTracker | Inventory Dashboard</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <h1>StockTracker</h1>
+    <div class="app">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <div class="logo">
+                <span>📦</span>
+                <h2>StockTracker</h2>
+            </div>
+
+            <nav>
+                <a href="#" class="nav-item active">
+                    📊 Dashboard
+                </a>
+
+                <a href="#" class="nav-item">
+                    📦 Inventory
+                </a>
+
+                <a href="#" class="nav-item">
+                    📈 Reports
+                </a>
+
+                <a href="#" class="nav-item">
+                    ⚙️ Settings
+                </a>
+            </nav>
+
+        </aside>
+
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="topbar">
+
+                <div>
+                    <p class="welcome">Welcome back, Admin</p>
+                    <h1>Inventory Dashboard</h1>
+                </div>
+
+                <div class="user">
+                    <span class="notification">🔔</span>
+                    <div class="avatar">A</div>
+                </div>
+
+            </header>
+
+
+            <!-- Statistics -->
+            <section class="stats">
+
+                <div class="stat-card">
+                    <div class="stat-icon">📦</div>
+
+                    <div>
+                        <p>Total Products</p>
+                        <h2>128</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">✅</div>
+
+                    <div>
+                        <p>In Stock</p>
+                        <h2>104</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">⚠️</div>
+
+                    <div>
+                        <p>Low Stock</p>
+                        <h2>12</h2>
+                    </div>
+                </div>
+
+
+                <div class="stat-card">
+                    <div class="stat-icon">❌</div>
+
+                    <div>
+                        <p>Out of Stock</p>
+                        <h2>12</h2>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- Inventory Section -->
+            <section class="inventory-section">
+
+                <div class="section-header">
+                    <div>
+                        <h2>Recent Inventory</h2>
+                        <p>Overview of your latest stock records</p>
+                    </div>
+
+                    <button id="addProductBtn">
+                        + Add Product
+                    </button>
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Category</th>
+                                <th>Quantity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Laptop</td>
+                                <td>Electronics</td>
+                                <td>15</td>
+                                <td>
+                                    <span class="status good">
+                                        In Stock
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Wireless Mouse</td>
+                                <td>Electronics</td>
+                                <td>4</td>
+                                <td>
+                                    <span class="status low">
+                                        Low Stock
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Office Chair</td>
+                                <td>Furniture</td>
+                                <td>23</td>
+                                <td>
+                                    <span class="status good">
+                                        In Stock
+                                    </span>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>Keyboard</td>
+                                <td>Electronics</td>
+                                <td>0</td>
+                                <td>
+                                    <span class="status out">
+                                        Out of Stock
+                                    </span>
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
 
     <script src="script.js"></script>
+
 </body>
 </html>
