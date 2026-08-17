@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>StockTracker | Inventory</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span>📦</span>
+            <h2>StockTrack</h2>
+        </div>
+
+        <nav>
+
+            <a href="index.html" class="nav-item">
+                📊 Dashboard
+            </a>
+
+            <a href="inventory.html" class="nav-item active">
+                📦 Inventory
+            </a>
+
+            <a href="#" class="nav-item">
+                📈 Reports
+            </a>
+
+            <a href="#" class="nav-item">
+                ⚙️ Settings
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <header class="topbar">
+
+            <div>
+
+                <p class="welcome">
+                    Stock management
+                </p>
+
+                <h1>
+                    Inventory
+                </h1>
+
+            </div>
+
+            <div class="user">
+
+                <span class="notification">
+                    🔔
+                </span>
+
+                <div class="avatar">
+                    A
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- Inventory Controls -->
+
+        <section class="inventory-section">
+
+            <div class="section-header">
+
+                <div>
+
+                    <h2>
+                        Product Inventory
+                    </h2>
+
+                    <p>
+                        Manage your current stock
+                    </p>
+
+                </div>
+
+                <button id="openAddProduct">
+                    + Add Product
+                </button>
+
+            </div>
+
+
+            <!-- Search and Filter -->
+
+            <div class="inventory-controls">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="🔍 Search products..."
+                >
+
+                <select id="categoryFilter">
+
+                    <option value="all">
+                        All Categories
+                    </option>
+
+                    <option value="Electronics">
+                        Electronics
+                    </option>
+
+                    <option value="Furniture">
+                        Furniture
+                    </option>
+
+                    <option value="Stationery">
+                        Stationery
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <!-- Inventory Table -->
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Product
+                            </th>
+
+                            <th>
+                                Category
+                            </th>
+
+                            <th>
+                                Quantity
+                            </th>
+
+                            <th>
+                                Status
+                            </th>
+
+                            <th>
+                                Actions
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="inventoryTable">
+
+                        <!-- JavaScript inserts products here -->
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- Add Product Modal -->
+
+<div id="productModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>
+                Add Product
+            </h2>
+
+            <button id="closeModal" class="close-button">
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="productForm">
+
+            <label>
+                Product Name
+            </label>
+
+            <input
+                type="text"
+                id="productName"
+                placeholder="Enter product name"
+                required
+            >
+
+
+            <label>
+                Category
+            </label>
+
+            <select id="productCategory" required>
+
+                <option value="">
+                    Select category
+                </option>
+
+                <option value="Electronics">
+                    Electronics
+                </option>
+
+                <option value="Furniture">
+                    Furniture
+                </option>
+
+                <option value="Stationery">
+                    Stationery
+                </option>
+
+            </select>
+
+
+            <label>
+                Quantity
+            </label>
+
+            <input
+                type="number"
+                id="productQuantity"
+                min="0"
+                placeholder="Enter quantity"
+                required
+            >
+
+
+            <button type="submit">
+                Add Product
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
