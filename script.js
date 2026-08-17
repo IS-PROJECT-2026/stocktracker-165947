@@ -1,0 +1,1 @@
+console.log("StockTracker loaded successfully.");
