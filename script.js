@@ -1,8 +1,7 @@
 /*
  * StockTracker Inventory Data
  */
-
-let products = [
+const defaultProducts = [
     {
         id: 1,
         name: "Laptop",
@@ -39,6 +38,9 @@ let products = [
     }
 ];
 
+let products =
+    JSON.parse(localStorage.getItem("stockTrackerProducts"))
+    || defaultProducts;
 
 /*
  * Determine stock status
@@ -133,6 +135,11 @@ function deleteProduct(id) {
     products = products.filter(function(product) {
         return product.id !== id;
     });
+
+    localStorage.setItem(
+        "stockTrackerProducts",
+        JSON.stringify(products)
+    );
 
     displayProducts(products);
 }
@@ -287,6 +294,11 @@ if (productForm) {
 
 
             products.push(newProduct);
+
+            localStorage.setItem(
+                "stockTrackerProducts",
+                JSON.stringify(products)
+            );
 
             displayProducts(products);
 
