@@ -410,3 +410,48 @@ th {
     margin: 0;
     font-size: 24px;
 }
+
+/* Accessibility and keyboard focus */
+button:focus,
+input:focus,
+select:focus,
+a:focus {
+    outline: 3px solid #8f25eb;
+    outline-offset: 2px;
+}
+
+/* Responsive inventory table */
+.table-container {
+    overflow-x: auto;
+}
+
+@media (max-width: 768px) {
+
+    .statistics-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .inventory-controls {
+        flex-direction: column;
+    }
+
+    .inventory-controls input,
+    .inventory-controls select {
+        width: 100%;
+    }
+
+    .table-container table {
+        min-width: 700px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .statistics-section {
+        grid-template-columns: 1fr;
+    }
+
+    .stat-card {
+        padding: 15px;
+    }
+}
