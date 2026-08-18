@@ -104,6 +104,13 @@ function displayProducts(productList = products) {
 
             <td>
                 <button
+                    class="action-button"
+                    onclick="editProduct(${product.id})"
+                >
+                    Edit
+                </button>
+
+                <button
                     class="action-button delete-button"
                     onclick="deleteProduct(${product.id})"
                 >
@@ -117,6 +124,35 @@ function displayProducts(productList = products) {
     });
 }
 
+/*
+ * Edit product
+ */
+
+function editProduct(id) {
+
+    const product = products.find(function(product) {
+        return product.id === id;
+    });
+
+    if (!product) {
+        return;
+    }
+
+    document.getElementById("productName").value =
+        product.name;
+
+    document.getElementById("productCategory").value =
+        product.category;
+
+    document.getElementById("productQuantity").value =
+        product.quantity;
+
+    modal.classList.add("show");
+
+    productForm.dataset.editingId = id;
+
+    productForm.querySelector("button[type='submit']").textContent = "Update Product";
+}
 
 /*
  * Delete product
@@ -279,21 +315,31 @@ if (productForm) {
                     document.getElementById("productQuantity").value
                 );
 
+            const editingId = productForm.dataset.editingId;
 
-            const newProduct = {
+            if (editingId) {
+                products = products.map(function(product) {
+                    if (product.id === Number(editingId)) {
+                        return {
+                            id: product.id,
+                            name: name,
+                            category: category,
+                            quantity: quantity
+                        };
+                    }
+                        return product;
+                });
+                delete productForm.dataset.editingId;
 
-                id: Date.now(),
-
-                name: name,
-
-                category: category,
-
-                quantity: quantity
-
-            };
-
-
-            products.push(newProduct);
+            } else {
+                const newProduct = {
+                    id: Date.now(),
+                    name: name,
+                    category: category,
+                    quantity: quantity
+                };
+                products.push(newProduct);
+            }
 
             localStorage.setItem(
                 "stockTrackerProducts",
@@ -303,6 +349,19 @@ if (productForm) {
             displayProducts(products);
 
             productForm.reset();
+
+            localStorage.setItem(
+                "stockTrackerProducts",
+                JSON.stringify(products)
+            );
+
+            displayProducts(products);
+
+            productForm.reset();
+
+            delete productForm.dataset.editingId;
+
+            productForm.querySelector("button[type='submit']").textContent = "Add Product";
 
             modal.classList.remove("show");
 
