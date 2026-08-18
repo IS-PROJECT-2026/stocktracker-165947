@@ -7,6 +7,7 @@ The system allows users to add, edit, delete, search, and filter products
 while automatically displaying stock status and inventory statistics.
 
 ## Live Demo
+StockTracker is deployed publicly using GitHub Pages.
 
 [View StockTracker Live](https://is-project-2026.github.io/stocktracker-165947/)
 
