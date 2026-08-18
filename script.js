@@ -178,6 +178,7 @@ function deleteProduct(id) {
     );
 
     displayProducts(products);
+    displayStatistics();
 }
 
 
@@ -347,27 +348,69 @@ if (productForm) {
             );
 
             displayProducts(products);
-
-            productForm.reset();
-
-            localStorage.setItem(
-                "stockTrackerProducts",
-                JSON.stringify(products)
-            );
-
-            displayProducts(products);
-
+            displayStatistics();
             productForm.reset();
 
             delete productForm.dataset.editingId;
-
             productForm.querySelector("button[type='submit']").textContent = "Add Product";
-
             modal.classList.remove("show");
 
         }
     );
 
+}
+
+/*
+ * Display inventory statistics
+ */
+
+function displayStatistics() {
+
+    const totalProductsElement =
+        document.getElementById("totalProducts");
+
+    const totalUnitsElement =
+        document.getElementById("totalUnits");
+
+    const lowStockElement =
+        document.getElementById("lowStock");
+
+    const outOfStockElement =
+        document.getElementById("outOfStock");
+
+    if (!totalProductsElement) {
+        return;
+    }
+
+    const totalProducts = products.length;
+
+    const totalUnits = products.reduce(
+        function(total, product) {
+            return total + product.quantity;
+        },
+        0
+    );
+
+    const lowStock = products.filter(
+        function(product) {
+            return product.quantity > 0 &&
+                   product.quantity <= 5;
+        }
+    ).length;
+
+    const outOfStock = products.filter(
+        function(product) {
+            return product.quantity === 0;
+        }
+    ).length;
+
+    totalProductsElement.textContent = totalProducts;
+
+    totalUnitsElement.textContent = totalUnits;
+
+    lowStockElement.textContent = lowStock;
+
+    outOfStockElement.textContent = outOfStock;
 }
 
 
@@ -376,6 +419,8 @@ if (productForm) {
  */
 
 displayProducts();
+
+displayStatistics();
 
 
 console.log(
