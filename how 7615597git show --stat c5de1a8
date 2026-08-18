@@ -1,0 +1,9 @@
+[33mcommit 7615597e7a4d5bf24d407dca631dc947d46a52c6[m[33m ([m[1;31morigin/fix/5-resolve-conflict[m[33m, [m[1;32mfix/5-resolve-conflict[m[33m)[m
+Merge: 8e7b937 c69ddbc
+Author: KiruiRG <gloria.rutoh@strathmore.edu>
+Date:   Tue Aug 18 00:31:50 2026 +0300
+
+    fix: resolve stylesheet conflict
+
+ style.css | 380 [32m++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ 1 file changed, 380 insertions(+)
